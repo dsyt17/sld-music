@@ -1,0 +1,49 @@
+@import '../../index';
+
+.root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.release {
+    padding: 10px 10px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &:hover {
+        // background-color: rgba(36, 36, 36, 0.488);
+        // border-radius: 20px;
+        // scale: 1.05;
+    }
+    img {
+        height: 200px;
+        width: 200px;
+        border-radius: 10px;
+    }
+    .title {
+        font-size: 1.2rem;
+    }
+    .artist {
+        font-size: 14px;
+    }
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.divider {
+    width: 100%;
+    .dividerLine {
+        height: 2px;
+        background-color: white;
+    }
+}

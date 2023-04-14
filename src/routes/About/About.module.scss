@@ -17,8 +17,26 @@
 
 .title {
     display: flex;
-    padding-top: 2rem;
+    margin: 1.5rem 0;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+}
+
+.card {
+    height: 500px;
+    margin: 1.5rem 0;
+    font-size: 2rem;
+    background-color: $SECOND_COLOR;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.left {
+        margin-right: 20%;
+        border-radius: 0 100px 100px 0;
+    }
+    &.right {
+        margin-left: 20%;
+        border-radius: 100px 0 0 100px;
+    }
 }
