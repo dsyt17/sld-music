@@ -1,0 +1,24 @@
+@import '../../index';
+
+.root {
+}
+
+.header {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $SECOND_COLOR;
+    color: $FIRST_COLOR;
+    font-size: 15rem;
+    font-weight: 900;
+    user-select: none;
+}
+
+.title {
+    display: flex;
+    padding-top: 2rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}

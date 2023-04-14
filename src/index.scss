@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@font-face {
+    font-family: 'Nickelodeon';
+    src: local('Nickelodeon'), url('../fonts/nickelodeon2001headline.ttf') format('truetype');
+}
+
+$FONT: 'Nickelodeon', 'Montserrat', 'Roboto', 'Open Sans', 'Segoe UI', sans-serif;
+$MAIN_BG_COLOR: #000000;
+$FONT_COLOR: #e2e2e2;
+$FIRST_COLOR: #8e0f01;
+$SECOND_COLOR: #cbbafb;
+
+html {
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: $MAIN_BG_COLOR;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(13, 13, 13);
+    border-radius: 3px;
+    width: 6px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-button {
+    height: 0;
+}
+
+.App {
+    font-family: $FONT;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    color: $FONT_COLOR;
+    font-size: 1.25rem;
+}

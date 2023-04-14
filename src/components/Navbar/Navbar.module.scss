@@ -1,0 +1,30 @@
+@import '../../index';
+
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    gap: 30px;
+    user-select: none;
+}
+
+.item {
+    text-decoration: none;
+    box-sizing: border-box;
+    color: $FONT_COLOR;
+    position: relative;
+    &:hover {
+        color: $FIRST_COLOR;
+    }
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+
+.activeLine {
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: -7px;
+    background-color: $FIRST_COLOR;
+}
