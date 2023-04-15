@@ -1,0 +1,24 @@
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    z-index: 2;
+    overflow-y: hidden;
+
+    .content {
+        position: absolute;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        background-color: azure;
+        border-radius: 50px;
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

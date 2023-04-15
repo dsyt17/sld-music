@@ -32,21 +32,3 @@
         margin-top: 15px;
     }
 }
-
-.modal {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .content {
-        width: 500px;
-        height: 500px;
-        background-color: azure;
-        border-radius: 50px;
-    }
-}

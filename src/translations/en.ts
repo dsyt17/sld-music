@@ -6,4 +6,7 @@ export const en = {
         contacts: 'Contact with us',
         music: 'Discography',
     },
+    fullRelease: {
+        listen: 'Listen',
+    },
 };

@@ -10,6 +10,7 @@
     font-family: $FONT;
     padding: 0 10px;
     gap: 5px;
+    user-select: none;
 
     &:hover {
         opacity: 0.9;

@@ -6,4 +6,7 @@ export const ru = {
         contacts: 'Связаться с нами',
         music: 'Дискография',
     },
+    fullRelease: {
+        listen: 'Прослушать',
+    },
 };
