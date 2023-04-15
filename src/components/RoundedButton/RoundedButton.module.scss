@@ -1,0 +1,17 @@
+@import '../../index';
+
+.root {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: unset;
+    border-radius: 32px;
+    font-family: $FONT;
+    padding: 0 10px;
+    gap: 5px;
+
+    &:hover {
+        opacity: 0.9;
+    }
+}

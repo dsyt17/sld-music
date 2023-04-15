@@ -1,0 +1,9 @@
+@import '../../../../index';
+
+.divider {
+    width: 100%;
+    .dividerLine {
+        height: 2px;
+        background-color: white;
+    }
+}

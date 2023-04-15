@@ -1,6 +1,7 @@
 import About from './About/About.component';
 import Contacts from './Contacts/Contacts.component';
 import Discography from './Discography/Discography.component';
+import FullRelease from './Discography/FullRelease/FullRelease.component';
 import Projects from './Projects/Projects.component';
 import App from '../App';
 
@@ -18,6 +19,7 @@ export const routes = [
                 path: 'discography',
                 element: <Discography />,
             },
+            { path: 'discography/:id', element: <FullRelease /> },
             {
                 path: 'contacts',
                 element: <Contacts />,

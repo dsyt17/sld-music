@@ -1,0 +1,22 @@
+.track {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: row;
+    padding: 10px 0;
+    border-bottom: 1px solid gray;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .numAndTitleWrapper {
+        display: flex;
+
+        .number {
+            width: 20px;
+            margin-right: 1.5rem;
+        }
+    }
+}
