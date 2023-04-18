@@ -1,6 +1,5 @@
 import About from './About/About.component';
 import Artists from './Artists/Artists.component';
-import Contacts from './Contacts/Contacts.component';
 import Discography from './Discography/Discography.component';
 import FullRelease from './Discography/FullRelease/FullRelease.component';
 import Home from './Home/Home.component';
@@ -27,10 +26,6 @@ export const routes = [
                 element: <Discography />,
             },
             { path: 'discography/:id', element: <FullRelease /> },
-            {
-                path: 'contacts',
-                element: <Contacts />,
-            },
             {
                 path: 'projects',
                 element: <Projects />,

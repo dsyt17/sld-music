@@ -38,3 +38,9 @@
     bottom: -7px;
     background-color: $FIRST_COLOR;
 }
+
+@media screen and (max-width: 600px) {
+    .root {
+        flex-direction: column;
+    }
+}

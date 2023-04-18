@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './Home.module.scss';
-import backVideo from '../../../../../videvo/freesst555555_1.mp4';
+import backVideo from '../../assets/freesst555555_1.mp4';
 
 const Home = () => {
     return (

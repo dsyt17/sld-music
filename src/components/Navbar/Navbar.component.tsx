@@ -24,7 +24,6 @@ const Navbar = () => {
         { to: '/about', title: t('navbar.about') },
         { to: '/discography', title: t('navbar.music') },
         { to: '/projects', title: t('navbar.projects') },
-        { to: '/contacts', title: t('navbar.contacts') },
         { to: '/artists', title: t('navbar.artists') },
     ];
 
@@ -43,12 +42,12 @@ const Navbar = () => {
     );
 };
 
-const MenuItem: React.FC<{ to: string; title: string; active: boolean; onClick: () => void }> = ({
-    title,
-    to,
-    active,
-    onClick,
-}) => {
+const MenuItem: React.FC<{
+    to: string;
+    title: string;
+    active: boolean;
+    onClick: () => void;
+}> = ({ title, to, active, onClick }) => {
     return (
         <motion.div>
             <Link to={to} className={styles.item} onClick={onClick}>
