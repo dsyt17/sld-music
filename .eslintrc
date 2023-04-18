@@ -1,6 +1,12 @@
 {
-    "extends": ["react-app", "plugin:prettier/recommended", "prettier/react"],
-    "plugins": ["prettier"],
+    "extends": [
+        "react-app",
+        "plugin:prettier/recommended",
+        "prettier/react"
+    ],
+    "plugins": [
+        "prettier"
+    ],
     "rules": {
         "prettier/prettier": [
             "error",
@@ -12,13 +18,21 @@
     },
     "overrides": [
         {
-            "files": ["**/*.ts?(x)"],
+            "files": [
+                "**/*.ts?(x)"
+            ],
             "rules": {
+                "no-console": 1,
                 "@typescript-eslint/explicit-module-boundary-types": "off",
                 "import/order": [
                     "warn",
                     {
-                        "groups": ["builtin", "external", "internal", "index"],
+                        "groups": [
+                            "builtin",
+                            "external",
+                            "internal",
+                            "index"
+                        ],
                         "pathGroups": [
                             {
                                 "pattern": "react",
@@ -26,7 +40,9 @@
                                 "position": "before"
                             }
                         ],
-                        "pathGroupsExcludedImportTypes": ["builtin"],
+                        "pathGroupsExcludedImportTypes": [
+                            "builtin"
+                        ],
                         "newlines-between": "always-and-inside-groups",
                         "alphabetize": {
                             "order": "asc",

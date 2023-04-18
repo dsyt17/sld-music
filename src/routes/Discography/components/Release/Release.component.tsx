@@ -9,21 +9,13 @@ import { ReleaseType } from '../../../../types/types';
 
 type ReleaseProps = {
     release: ReleaseType;
-    onClick: (id: number) => void;
+    onClick?: (id: number) => void;
     className?: string;
 };
 
 const Release: React.FC<ReleaseProps> = ({ className, release, onClick }) => {
-    const handleActive = () => {
-        onClick(release.id);
-    };
-
     return (
-        <Link
-            to={`/discography/${release.id}`}
-            className={classNames(styles.release, className)}
-            onClick={handleActive}
-        >
+        <Link to={`/discography/${release.id}`} className={classNames(styles.release, className)}>
             <img alt="Cover" src={release.cover} />
             <div className={styles.title}>{release.title}</div>
             <div className={styles.artist}>{release.artist}</div>

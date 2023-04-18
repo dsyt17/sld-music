@@ -30,19 +30,24 @@ const releases: Array<ReleaseType> = [
 ];
 
 const Discography = () => {
-    const [active, setActive] = React.useState<number>(1);
-
     return (
         <div className={styles.root}>
             <Divider year={2021} />
             <ReleaseCarousel>
                 {releases.map(r => (
-                    <Release
-                        key={r.id}
-                        release={r}
-                        onClick={setActive}
-                        className={r.id === active ? styles.activeRelease : ''}
-                    />
+                    <Release key={r.id} release={r} />
+                ))}
+            </ReleaseCarousel>
+            <Divider year={2022} />
+            <ReleaseCarousel>
+                {releases.map(r => (
+                    <Release key={r.id} release={r} />
+                ))}
+            </ReleaseCarousel>
+            <Divider year={2021} />
+            <ReleaseCarousel>
+                {releases.map(r => (
+                    <Release key={r.id} release={r} />
                 ))}
             </ReleaseCarousel>
         </div>

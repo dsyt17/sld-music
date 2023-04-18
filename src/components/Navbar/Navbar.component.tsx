@@ -1,5 +1,6 @@
 import React from 'react';
 
+import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -13,6 +14,8 @@ type menuItemType = {
 
 const Navbar = () => {
     const pathname = window.location.pathname;
+    const isHome = pathname === '/';
+
     const [active, setActive] = React.useState(pathname);
     const { t } = useTranslation();
 
@@ -22,10 +25,11 @@ const Navbar = () => {
         { to: '/discography', title: t('navbar.music') },
         { to: '/projects', title: t('navbar.projects') },
         { to: '/contacts', title: t('navbar.contacts') },
+        { to: '/artists', title: t('navbar.artists') },
     ];
 
     return (
-        <div className={styles.root}>
+        <div className={classNames(styles.root, isHome && styles.noBG)}>
             {menuItems.map(el => (
                 <MenuItem
                     to={el.to}

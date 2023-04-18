@@ -1,12 +1,22 @@
 @import '../../index';
 
 .root {
+    width: 100vw;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 10px 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 0;
     gap: 30px;
     user-select: none;
+    font-family: $FONT;
+    z-index: 9999;
+    background-color: black;
+    &.noBG {
+        background-color: transparent;
+    }
 }
 
 .item {
