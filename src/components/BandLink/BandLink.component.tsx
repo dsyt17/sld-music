@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './BandLink.module.scss';
 import { baseURL } from '../../axios';
 import { ReleaseType } from '../../types/types';
+import { splitArtistsNames } from '../../utils/splitArtistsNames';
 
 type BandLinkType = {
     release: ReleaseType;
@@ -15,7 +16,7 @@ const BandLink: React.FC<BandLinkType> = ({ release }) => {
         <div className={styles.root}>
             <img src={baseURL + cover} alt="Cover" />
             <div className={styles.info}>
-                <div className={styles.artist}>{artists.map(a => a.nickName)}</div>
+                <div className={styles.artist}>{splitArtistsNames(artists)}</div>
                 <div className={styles.title}>{title}</div>
             </div>
             <div className={styles.items}>

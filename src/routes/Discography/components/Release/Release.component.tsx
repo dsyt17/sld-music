@@ -6,10 +6,20 @@ import { Link } from 'react-router-dom';
 
 import styles from './Release.module.scss';
 import { baseURL } from '../../../../axios';
-import { ReleaseType } from '../../../../types/types';
+import { splitArtistsNames } from '../../../../utils/splitArtistsNames';
 
 type ReleaseProps = {
-    release: ReleaseType;
+    release: {
+        _id: string;
+        cover: string;
+        title: string;
+        artists: Array<{
+            _id: string;
+            nickName: string;
+        }>;
+        year: number;
+        link: string;
+    };
     onClick?: (id: number) => void;
     className?: string;
     showYear?: boolean;
@@ -28,7 +38,7 @@ const Release: React.FC<ReleaseProps> = ({
         >
             <img alt="Cover" src={`${baseURL}${release.cover}`} />
             <div className={styles.title}>{release.title}</div>
-            <div className={styles.artist}>{release.artists.map(a => a.nickName)}</div>
+            <div className={styles.artist}>{splitArtistsNames(release.artists)}</div>
             {showYear && <div className={styles.year}>{release.year}</div>}
         </Link>
     );

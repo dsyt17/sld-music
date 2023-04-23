@@ -32,7 +32,7 @@ const Artist: React.FC<ArtistType> = ({ index, className }) => {
             custom={index}
             className={className}
         >
-            <Link to={`/artists/3`} className={styles.root}>
+            <Link to={`/artists/yungsleep`} className={styles.root}>
                 <img src="./src/assets/vadim.jpg" alt="Artist"></img>
                 <div>Yung Sleep</div>
             </Link>

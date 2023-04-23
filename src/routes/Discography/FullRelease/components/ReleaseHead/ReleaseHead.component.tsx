@@ -11,6 +11,7 @@ import PlayOutline from '../../../../../components/Icons/PlayOutline';
 import ModalWindow from '../../../../../components/ModalWindow/ModalWindow.component';
 import RoundedButton from '../../../../../components/RoundedButton/RoundedButton.component';
 import { ReleaseType } from '../../../../../types/types';
+import { splitArtistsNames } from '../../../../../utils/splitArtistsNames';
 
 type ReleaseHeadType = {
     release: ReleaseType;
@@ -33,7 +34,7 @@ const ReleaseHead: React.FC<ReleaseHeadType> = ({ release }) => {
                     <div className={styles.rowInfo}>
                         <span className={styles.type}>{genre}</span>•
                         <span className={styles.artist}>
-                            {artists.map(a => a.nickName)}
+                            {splitArtistsNames(artists)}
                         </span>
                         •<span className={styles.year}>{year}</span>
                     </div>

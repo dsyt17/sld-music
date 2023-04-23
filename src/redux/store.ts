@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import { artistReducer } from './slices/artistSlice';
 import { releaseReducer } from './slices/releasesSlice';
 
 const store = configureStore({
     reducer: {
         releases: releaseReducer,
+        artist: artistReducer,
     },
 });
 

@@ -49,6 +49,7 @@ const releasesSlice = createSlice({
             state.idLoading = false;
         });
         builder.addCase(fetchReleaseByLink.pending, state => {
+            state.releaseByLink = null;
             state.idLoading = true;
         });
         builder.addCase(fetchReleaseByLink.rejected, state => {
