@@ -1,23 +1,42 @@
-@import '../../../../../index';
+@import '../../../index';
 
 .root {
+}
+
+.image {
+    min-width: 100%;
+    overflow: hidden;
+    height: 400px;
+}
+
+.info {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    padding: 15px 5%;
+    .nickname {
+        font-size: 3rem;
+    }
+    .name {
+        opacity: 0.8;
+    }
+    .about {
+        margin-top: 15px;
+    }
+}
+.carouselWrapper {
+    margin: 20px 0;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    position: relative;
-    transition: all 0.4s ease;
-    text-decoration: none;
-    color: $FONT_COLOR;
+}
 
-    img {
-        width: 200px;
-        height: 200px;
-        border-radius: 100%;
-    }
-
-    &:hover {
-        scale: 1.1;
+.carouselContainer {
+    max-width: 1200px;
+    width: 100%;
+    .carouselItem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

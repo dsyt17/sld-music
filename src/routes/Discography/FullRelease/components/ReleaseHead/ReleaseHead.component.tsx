@@ -4,19 +4,20 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import styles from './ReleaseHead.module.scss';
+import { baseURL } from '../../../../../axios';
 import BandLink from '../../../../../components/BandLink/BandLink.component';
+import InfoOutline from '../../../../../components/Icons/InfoOutline';
 import PlayOutline from '../../../../../components/Icons/PlayOutline';
 import ModalWindow from '../../../../../components/ModalWindow/ModalWindow.component';
 import RoundedButton from '../../../../../components/RoundedButton/RoundedButton.component';
 import { ReleaseType } from '../../../../../types/types';
-import InfoOutline from '../../../../../components/Icons/InfoOutline';
 
 type ReleaseHeadType = {
     release: ReleaseType;
 };
 
 const ReleaseHead: React.FC<ReleaseHeadType> = ({ release }) => {
-    const { artist, cover, title, type, year } = release;
+    const { artists, cover, title, genre, year } = release;
     const [showModal, setShowModal] = React.useState<boolean>(false);
     const [showInfo, setShowInfo] = React.useState<boolean>(false);
     const { t } = useTranslation();
@@ -26,13 +27,15 @@ const ReleaseHead: React.FC<ReleaseHeadType> = ({ release }) => {
     return (
         <div>
             <div className={styles.head}>
-                <img src={cover} alt="Cover" />
+                <img src={baseURL + cover} alt="Cover" />
                 <div className={styles.releaseInfo}>
                     <div className={styles.title}>{title}</div>
                     <div className={styles.rowInfo}>
-                        <span className={styles.type}>{type}</span>•
-                        <span className={styles.artist}>{artist}</span>•
-                        <span className={styles.year}>{year}</span>
+                        <span className={styles.type}>{genre}</span>•
+                        <span className={styles.artist}>
+                            {artists.map(a => a.nickName)}
+                        </span>
+                        •<span className={styles.year}>{year}</span>
                     </div>
                     <div className={styles.buttons}>
                         <RoundedButton
@@ -56,9 +59,7 @@ const ReleaseHead: React.FC<ReleaseHeadType> = ({ release }) => {
                 </div>
             </div>
             <Collapsible visible={showInfo} className={styles.info}>
-                Здесь исчерпывающая информация о резиле Здесь исчерпывающая информация о резилеЗдесь
-                исчерпывающая информация о резилеЗдесь исчерпывающая информация о резилеЗдесь
-                исчерпывающая информация о резилеЗдесь исчерпывающая информация о резиле
+                {release.about}
             </Collapsible>
         </div>
     );

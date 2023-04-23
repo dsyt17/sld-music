@@ -1,29 +1,43 @@
 import React from 'react';
 
+import { useParams } from 'react-router-dom';
+
 import ReleaseHead from './components/ReleaseHead/ReleaseHead.component';
 import Track from './components/Track/Track.component';
 import styles from './FullRelease.module.scss';
-import { ReleaseType } from '../../../types/types';
-
-const release: ReleaseType = {
-    artist: 'Yung Sleep',
-    cover: '../src/assets/secta.jpg',
-    title: 'Секта',
-    type: 'Сингл',
-    year: '2021',
-};
+import { useAppDispatch } from '../../../hooks/useAppDispatch';
+import { useAppSelector } from '../../../hooks/useAppSelector';
+import { fetchReleaseByLink } from '../../../redux/slices/releasesSlice';
 
 const FullRelease = () => {
+    const dispatch = useAppDispatch();
+    const release = useAppSelector(state => state.releases.releaseByLink);
+
+    const { id } = useParams();
+
+    React.useEffect(() => {
+        dispatch(fetchReleaseByLink(id));
+    }, []);
+
     return (
         <div className={styles.root}>
-            <ReleaseHead release={release} />
-            <div className={styles.trackList}>
-                <Track duration="2:28" title="Секта" number={1} />
-                <Track duration="2:28" title="Секта" number={10} />
-                <Track duration="2:28" title="Секта" number={12} />
-                <Track duration="2:28" title="Секта" number={4} />
-                <Track duration="2:28" title="Секта" number={6} />
-            </div>
+            {release?._id ? (
+                <>
+                    <ReleaseHead release={release} />
+                    <div className={styles.trackList}>
+                        {release.songs?.map((s, i) => (
+                            <Track
+                                key={s._id}
+                                duration={s.duration}
+                                title={s.title}
+                                number={i + 1}
+                            />
+                        ))}
+                    </div>
+                </>
+            ) : (
+                <div>Loading</div>
+            )}
         </div>
     );
 };
