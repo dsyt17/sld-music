@@ -6,11 +6,17 @@ import { ArtistType } from '../../types/types';
 type InitialStateType = {
     artist: ArtistType | null;
     idLoading: boolean;
+    artistsNames: Array<{
+        _id: string;
+        nickName: string;
+        link: string;
+    }> | null;
 };
 
 const initialState: InitialStateType = {
     artist: null,
     idLoading: true,
+    artistsNames: null,
 };
 
 export const fetchArtist = createAsyncThunk(
@@ -20,6 +26,11 @@ export const fetchArtist = createAsyncThunk(
         return data;
     },
 );
+
+export const fetchArtistsNames = createAsyncThunk('artistsNames', async () => {
+    const { data } = await axios.get('/artist/all');
+    return data;
+});
 
 const artistSlice = createSlice({
     name: 'artist',
@@ -35,6 +46,17 @@ const artistSlice = createSlice({
             state.idLoading = true;
         });
         builder.addCase(fetchArtist.rejected, state => {
+            state.idLoading = false;
+        });
+
+        builder.addCase(fetchArtistsNames.pending, state => {
+            state.idLoading = true;
+        });
+        builder.addCase(fetchArtistsNames.fulfilled, (state, action: any) => {
+            state.artistsNames = action.payload;
+            state.idLoading = false;
+        });
+        builder.addCase(fetchArtistsNames.rejected, state => {
             state.idLoading = false;
         });
     },

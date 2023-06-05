@@ -1,9 +1,14 @@
 import React from 'react';
 
+import { useTranslation } from 'react-i18next';
+
 import styles from './Home.module.scss';
 import backVideo from '../../assets/freesst555555_1.mp4';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const Home = () => {
+    const { t } = useTranslation();
+    useDocumentTitle(t('navbar.home'));
     return (
         <div className={styles.root}>
             {backVideo && (

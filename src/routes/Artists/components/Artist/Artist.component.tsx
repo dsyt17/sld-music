@@ -8,9 +8,11 @@ import styles from './Artist.module.scss';
 type ArtistType = {
     index: number;
     className?: string;
+    link: string;
+    nickName: string;
 };
 
-const Artist: React.FC<ArtistType> = ({ index, className }) => {
+const Artist: React.FC<ArtistType> = ({ index, className, link, nickName }) => {
     const variants = {
         visible: (i: number) => ({
             opacity: 1,
@@ -32,9 +34,9 @@ const Artist: React.FC<ArtistType> = ({ index, className }) => {
             custom={index}
             className={className}
         >
-            <Link to={`/artists/yungsleep`} className={styles.root}>
-                <img src="./src/assets/vadim.jpg" alt="Artist"></img>
-                <div>Yung Sleep</div>
+            <Link to={`/artists/${link}`} className={styles.root}>
+                <img src="./src/assets/vadim.jpg" alt={nickName} />
+                <div>{nickName}</div>
             </Link>
         </motion.div>
     );

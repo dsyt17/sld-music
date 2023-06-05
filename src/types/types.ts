@@ -6,7 +6,9 @@ export type ReleaseType = {
     artists: Array<{
         _id: string;
         nickName: string;
+        link: string;
     }>;
+    otherArtists?: Array<string>;
     genre: string;
     year: number;
     link: string;
@@ -15,6 +17,11 @@ export type ReleaseType = {
         title: string;
         prod: string;
         duration: string;
+        artists: Array<{
+            _id: string;
+            nickName: string;
+            link: string;
+        }>;
     }>;
     about: string;
 };

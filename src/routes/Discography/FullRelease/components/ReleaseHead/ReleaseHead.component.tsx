@@ -3,6 +3,8 @@ import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+import { Link } from 'react-router-dom';
+
 import styles from './ReleaseHead.module.scss';
 import { baseURL } from '../../../../../axios';
 import BandLink from '../../../../../components/BandLink/BandLink.component';
@@ -34,7 +36,9 @@ const ReleaseHead: React.FC<ReleaseHeadType> = ({ release }) => {
                     <div className={styles.rowInfo}>
                         <span className={styles.type}>{genre}</span>•
                         <span className={styles.artist}>
-                            {splitArtistsNames(artists)}
+                            {artists.map(a => (
+                                <Link to={`/artists/${a.link}`}>{a.nickName}</Link>
+                            ))}
                         </span>
                         •<span className={styles.year}>{year}</span>
                     </div>

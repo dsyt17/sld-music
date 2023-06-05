@@ -12,7 +12,6 @@ import { fetchReleaseByLink } from '../../../redux/slices/releasesSlice';
 const FullRelease = () => {
     const dispatch = useAppDispatch();
     const release = useAppSelector(state => state.releases.releaseByLink);
-
     const { id } = useParams();
 
     React.useEffect(() => {
@@ -31,6 +30,8 @@ const FullRelease = () => {
                                 duration={s.duration}
                                 title={s.title}
                                 number={i + 1}
+                                artists={s.artists}
+                                prod={s.prod}
                             />
                         ))}
                     </div>

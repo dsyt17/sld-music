@@ -8,10 +8,15 @@ import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { fetchReleases } from '../../redux/slices/releasesSlice';
 import { ReleaseType } from '../../types/types';
+import { useTranslation } from 'react-i18next';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 const Discography = () => {
     const dispatch = useAppDispatch();
     const releases = useAppSelector(state => state.releases.items);
+
+    const { t } = useTranslation();
+    useDocumentTitle(t('navbar.music'));
 
     React.useEffect(() => {
         dispatch(fetchReleases());
@@ -28,14 +33,31 @@ const Discography = () => {
 
     return (
         <div className={styles.root}>
-            <Divider year={2023} />
-            <ReleaseCarousel>{renderReleasesWithYear(releases, 2023)}</ReleaseCarousel>
+            {releases.length ? (
+                <>
+                    <Divider year={2023} />
+                    <ReleaseCarousel>
+                        {renderReleasesWithYear(releases, 2023)}
+                    </ReleaseCarousel>
 
-            <Divider year={2022} />
-            <ReleaseCarousel>{renderReleasesWithYear(releases, 2022)}</ReleaseCarousel>
+                    <Divider year={2022} />
+                    <ReleaseCarousel>
+                        {renderReleasesWithYear(releases, 2022)}
+                    </ReleaseCarousel>
 
-            <Divider year={2021} />
-            <ReleaseCarousel>{renderReleasesWithYear(releases, 2021)}</ReleaseCarousel>
+                    <Divider year={2021} />
+                    <ReleaseCarousel>
+                        {renderReleasesWithYear(releases, 2021)}
+                    </ReleaseCarousel>
+
+                    <Divider year={2020} />
+                    <ReleaseCarousel>
+                        {renderReleasesWithYear(releases, 2020)}
+                    </ReleaseCarousel>
+                </>
+            ) : (
+                <h1>Loading...</h1>
+            )}
         </div>
     );
 };
